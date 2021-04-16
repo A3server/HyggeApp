@@ -62,7 +62,7 @@ void main() {
         "/home": (context) => HomePage(),
         "/YourTrips": (context) => YourTrips(),
         "/Settings": (context) => Settings(),
-        "/Help": (context) => Help(),
-        "/TripStart": (context) => TripStart()
+        //"/Help": (context) => Help(),
+        //"/TripStart": (context) => TripStart()
       }));
 }
