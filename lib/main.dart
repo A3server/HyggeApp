@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:a3team/routes/SplashScreen.dart';
-import 'package:a3team/routes/HomePage.dart';
-import 'package:a3team/routes/YourTrips.dart';
-import 'package:a3team/routes/Settings.dart';
-import 'package:a3team/routes/Help.dart';
-import 'package:a3team/routes/Signup.dart';
-import 'package:a3team/routes/TripStart.dart';
+import 'package:HyggeApp/routes/SplashScreen.dart';
+import 'package:HyggeApp/routes/HomePage.dart';
+import 'package:HyggeApp/routes/YourTrips.dart';
+import 'package:HyggeApp/routes/Settings.dart';
+import 'package:HyggeApp/routes/Help.dart';
+import 'package:HyggeApp/routes/Signup.dart';
+import 'package:HyggeApp/routes/TripStart.dart';
 
 MaterialColor myMainColor = const MaterialColor(
   0xFF7924A3,

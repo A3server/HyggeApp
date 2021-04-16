@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:a3team/components/Popups.dart';
+import 'package:HyggeApp/components/Popups.dart';
 
 void saveDatafast(String Key, String name) async {
   //função para salvar os varios tipos de dados obtidos muito rapidamente com uma chave e nome
