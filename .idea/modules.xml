@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Hygge.iml" filepath="$PROJECT_DIR$/.idea/Hygge.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hyggeapp.iml" filepath="$PROJECT_DIR$/hyggeapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/hyggeapp_android.iml" filepath="$PROJECT_DIR$/android/hyggeapp_android.iml" />
     </modules>
   </component>
 </project>
