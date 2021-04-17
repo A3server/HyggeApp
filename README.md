@@ -60,9 +60,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -102,11 +100,11 @@ Here's some:
 
 ## Getting Started
 
-First of all, if you want to test this on your computer, you need to have an editor and [Flutter SDK](https://flutter.dev/docs/get-started/install/) installed.
+If you want to test this on your computer, you need to have an editor and [Flutter SDK](https://flutter.dev/docs/get-started/install/) installed.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+When you have your environment set up to get the dependencies needed just run on the terminal:
 
 - flutter
   ```sh
@@ -115,27 +113,13 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
+To install it just run it on the emulator and the app will install itself on your phone!
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+Hygge .
 
 <!-- ROADMAP -->
 
@@ -155,35 +139,19 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
 <!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Eduardo Nunes - [@Polpedu](https://twitter.com/PolpEdu) - edujgnunes@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Vasco Gouveia - [@_vasco_gouveia_](https://twitter.com/_vasco_gouveia_)
 
-<!-- ACKNOWLEDGEMENTS -->
+Mariana - [@mariislvs](https://www.instagram.com/mariislvs/)
 
-## Acknowledgements
+Lucas Anjo - [@lucas_matias02659](https://www.instagram.com/lucas_matias02659/)
 
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
-- [Choose an Open Source License](https://choosealicense.com)
-- [GitHub Pages](https://pages.github.com)
-- [Animate.css](https://daneden.github.io/animate.css)
-- [Loaders.css](https://connoratherton.com/loaders)
-- [Slick Carousel](https://kenwheeler.github.io/slick)
-- [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-- [Sticky Kit](http://leafo.net/sticky-kit)
-- [JVectorMap](http://jvectormap.com)
-- [Font Awesome](https://fontawesome.com)
+Project Link: [https://github.com/A3server/HyggeApp](https://github.com/A3server/HyggeApp)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
