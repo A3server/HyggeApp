@@ -67,7 +67,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](http://prntscr.com/11l5c11)
+[![Product Name Screen Shot][product-screenshot]](http://prntscr.com/11l7mzy)
 
 Nowadays even a trip downtown is a reason to call friends and hang out.
 Hygge's goal is to create more of these little moments and make them into much more: whenever you’re moving locations, check the app to see if anyone in your area is going to your selected location and if you both agree to do so, join each other and walk or drive together there.
@@ -164,5 +164,4 @@ Project Link: [https://github.com/A3server/HyggeApp](https://github.com/A3server
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
