@@ -59,15 +59,15 @@ class RequestAssistant {
 
   //O server deu nos quem esta proximo de nos e vai para o mesmo destino.
   List<dynamic> data = [{
-    "lat": 40.1845,
-    "lng": -8.4136
-  },{
-    "lat":40.1851,
-    "lng": -8.4116
-  },{
-    "lat": 40.1851,
-    "lng": -8.4133
-  }
+      "lat": 40.1845,
+      "lng": -8.4136
+    },{
+      "lat":40.1851,
+      "lng": -8.4116
+    },{
+      "lat": 40.1851,
+      "lng": -8.4133
+    }
   ];
   List<dynamic> getdata(){
     return data;

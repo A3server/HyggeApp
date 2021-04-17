@@ -133,14 +133,19 @@ class _MyHomePageState extends State<HomePage> {
     ];
 
     return Scaffold(
+      backgroundColor: Colors.grey.shade100,
       key: _scaffoldKey,
       drawer: SideBar(),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
             automaticallyImplyLeading: false,
-            collapsedHeight: 70,
-            expandedHeight: 100,
+            collapsedHeight: 100,
+            expandedHeight: 30,
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(0.0),
+              child: Text(''),
+            ),
             pinned: _pinned,
             floating: _floating,
             flexibleSpace: FlexibleSpaceBar(
@@ -148,28 +153,60 @@ class _MyHomePageState extends State<HomePage> {
               title: SafeArea(
                 child: Stack(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Hygge",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 34,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
+                    Positioned(
+                      left: 15,
+                      top:15,
                       child: IconButton(
                         icon: Icon(Icons.menu),
-                        iconSize: 37,
+                        iconSize: 40,
                         color: Colors.white,
                         onPressed: () {
                           _scaffoldKey.currentState!.openDrawer();
                         },
                       ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Hygge",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 45,
+                                  fontFamily: 'Poppins-Bold'
+                              ),
+                            ),
+                            /*Padding(
+                              padding: const EdgeInsets.only(top:0.0),
+
+                              child: SizedBox(
+                                width: 250,
+                                height: 40,
+                                child: ClipRRect(
+                                  borderRadius:BorderRadius.circular(10),
+                                  child: Container(
+                                    child: Text(
+                                        "Search",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                        fontSize: 22, fontWeight: FontWeight.w100, color: Colors.grey),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.rectangle,
+                                      border: Border.all(width: 4.0,color: Colors.grey),
+                                      borderRadius: BorderRadius.all(Radius.circular(10))
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),*/
+                          ],
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -179,21 +216,21 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
-                color: Colors.white,
+                color: Colors.grey.shade100,
                 child: Stack(alignment: Alignment.center, children: <Widget>[
                   Align(
                     alignment: Alignment.center,
-                    child: Text(
-                      "Favourites",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color(0xFF9a33b6),
-                        fontSize: 30,
+                      child: Text(
+                        "Favourites",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Color(0xFF9a33b6),
+                          fontSize: 30,
+                        ),
                       ),
                     ),
-                  ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 6.0),
+                    padding: const EdgeInsets.only(right: 9.0,top: 0),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
@@ -214,18 +251,32 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
             return Card(
-                child: ListTile(
-              title: Text(favouriteLocations[index].nome),
-              leading: Icon(
-                Icons.star,
-                color: Colors.black,
+                child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  Navigator.pushNamed(
+                    context,
+                    "/TripStart",
+                    arguments: TripARGS(
+                        favouriteLocations[index].nome,
+                        favouriteLocations[index]
+                            .Localizacao), //passing the name and the POS
+                  );
+                });
+              },
+              child: ListTile(
+                title: Text(favouriteLocations[index].nome),
+                leading: Icon(
+                  Icons.star,
+                  color: Colors.black,
+                ),
               ),
             ));
           }, childCount: favouriteLocations.length)),
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
-                color: Colors.white,
+                color:Colors.grey.shade100,
                 child: Center(
                   child: Text(
                     "Featured",
@@ -264,7 +315,7 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
-                color: Colors.white,
+                color: Colors.grey.shade100,
                 child: Center(
                   child: Text(
                     "Latest",
@@ -277,16 +328,28 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
             return Card(
-                child: GestureDetector(
-              onTap: () {},
-              child: ListTile(
-                title: Text(latestLocations[index].nome),
-                leading: Icon(
-                  Icons.access_time,
-                  color: Colors.black,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    Navigator.pushNamed(
+                      context,
+                      "/TripStart",
+                      arguments: TripARGS(
+                          latestLocations[index].nome,
+                          latestLocations[index]
+                              .Localizacao), //passing the name and the POS
+                    );
+                  });
+                },
+                child: ListTile(
+                  title: Text(latestLocations[index].nome),
+                  leading: Icon(
+                    Icons.access_time,
+                    color: Colors.black,
+                  ),
                 ),
               ),
-            ));
+            );
           }, childCount: latestLocations.length)),
         ],
       ),
