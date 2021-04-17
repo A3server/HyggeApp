@@ -60,7 +60,7 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](http://prntscr.com/11l7mzy)
+![Product Name Screen Shot][product-screenshot](http://prntscr.com/11l7mzy)
 
 Nowadays even a trip downtown is a reason to call friends and hang out.
 Hygge's goal is to create more of these little moments and make them into much more: whenever you’re moving locations, check the app to see if anyone in your area is going to your selected location and if you both agree to do so, join each other and walk or drive together there.
