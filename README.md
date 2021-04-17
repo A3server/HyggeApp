@@ -57,7 +57,6 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -115,17 +114,15 @@ When you have your environment set up to get the dependencies needed just run on
 
 To install it just run it on the emulator and the app will install itself on your phone!
 
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Hygge .
-
 <!-- ROADMAP -->
 
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+The main plans we aim towards are:
+
+- Implementing an API that can send and pull requests in real-time of the people around you!
+
+- Two-factor authentication in sign-in using Firebase!
 
 <!-- CONTRIBUTING -->
 
