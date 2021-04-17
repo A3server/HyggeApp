@@ -70,42 +70,47 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](http://prntscr.com/11l5c11)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
-
-Here's why:
-
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+Nowadays even a trip downtown is a reason to call friends and hang out.
+Hygge's goal is to create more of these little moments and make them into much more: whenever you’re moving locations, check the app to see if anyone in your area is going to your selected location and if you both agree to do so, join each other and walk or drive together there.
+If the trip is done safely the only thing you’ll gain is a fun memory and maybe even a new friend!
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This App was built using Flutter! Flutter makes it easy and fast to build beautiful apps for mobile and beyond!
 
-- [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
-- [Laravel](https://laravel.com)
+- [Flutter](https://flutter.dev/)
+
+We also used many packages and libraries that supported us in creating Hygge!
+Here's some:
+
+- [cupertino_icons](https://pub.dev/packages/cupertino_icons)
+- [flutter_spinkit](https://pub.dev/packages/flutter_spinkit)
+- [shared_preferences](https://pub.dev/packages/shared_preferences)
+- [google_maps_flutter](https://pub.dev/packages/google_maps_flutter)
+- [geocoding](https://pub.dev/packages/geocoding)
+- [geolocator](https://pub.dev/packages/geolocator)
+- [http](https://pub.dev/packages/http)
+- [location](https://pub.dev/packages/location)
+- [pedantic](https://pub.dev/packages/pedantic)
+- [json_serializable](https://pub.dev/packages/json_serializable)
+- [provider](https://pub.dev/packages/provider)
+- [build_runner](https://pub.dev/packages/build_runner)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+First of all, if you want to test this on your computer, you need to have an editor and [Flutter SDK](https://flutter.dev/docs/get-started/install/) installed.
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
 
-- npm
+- flutter
   ```sh
-  npm install npm@latest -g
+  flutter pub get
   ```
 
 ### Installation
