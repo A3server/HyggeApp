@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:a3team/components/SideBar.dart';
+import 'package:HyggeApp/components/SideBar.dart';
 import 'package:geolocator/geolocator.dart';
 
 class HomePage extends StatefulWidget {
