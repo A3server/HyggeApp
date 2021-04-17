@@ -1,128 +1,240 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Settings extends StatelessWidget {
+class SettingsOnePage extends StatefulWidget {
+  const SettingsOnePage({Key? key}) : super(key: key);
+  @override
+  _SettingsOnePageState createState() => _SettingsOnePageState();
+}
+
+class _SettingsOnePageState extends State<SettingsOnePage> {
+
+  // ignore: non_constant_identifier_names
+  String AccountName = "placeholder";
+  // ignore: non_constant_identifier_names
+  String HIGGEID = "placeholder";
+
+  bool _toggled1 = false;
+  bool _tiggled2 = false;
+  bool _tiggled3 = true;
+  bool _tiggled4 = false;
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  readandsetlsvalues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      AccountName = (prefs.getString('UserName') ?? 0).toString();
+      HIGGEID = (prefs.getString('UserHIGGEID') ?? 0).toString();
+    });
+  }
+  clearlocalstorage() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    prefs.remove('UserName');
+    prefs.remove('UserHIGGEID');
+    prefs.remove('UserKey'); //Quando implementarmos a firebase
+    prefs.remove('UserPhone');
+
+    //TODO: send logout token to firebase
+    Navigator.pushReplacementNamed(context, "/signupName");
+  }
+
   @override
   Widget build(BuildContext context) {
+    readandsetlsvalues();
     return Scaffold(
-      backgroundColor: Color(0xFF9a33b6),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Stack(children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Settings",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ],
-                ),
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: IconButton(
+        backgroundColor: Colors.grey.shade200,
+        appBar: AppBar(
+          elevation: 0,
+          centerTitle: true,
+          leading: new IconButton(
+            icon: new Icon(Icons.arrow_back,size: 35.0,color: Colors.black),
+            onPressed: () => {
+              // Perform Your action here
+              Navigator.of(context).pop()
+            },
+          ),
+          backgroundColor: Colors.transparent,
+          toolbarHeight: 70,
+          title: Text(
+            'Settings',
+            style: TextStyle(color: Colors.black, fontStyle: FontStyle.normal, fontSize: 40),
+          ),
+        ),
+        body: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Card(
+                    elevation: 8.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    color: Colors.purple,
+                    child: ListTile(
+                      onTap: () {
+                        //open edit profile
+                      },
+                      title: Text(
+                        "$AccountName",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                        ),
+                      ),
+                      leading: CircleAvatar(
+                        backgroundImage: NetworkImage("https://www.woolha.com/media/2020/03/eevee.png"),
+                      ),
+                      trailing: Icon(
+                        Icons.edit,
                         color: Colors.white,
-                        icon: Icon(Icons.arrow_back),
-                        iconSize: 37,
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
                       ),
-                    )),
-              ]),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Expanded(
-                child: Container(
-              color: Colors.white,
-              child: ListView(
-                physics: NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 2.0),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Account Preferences",
-                            style:
-                                TextStyle(fontSize: 24, color: Colors.black)),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white)),
                     ),
                   ),
-                  Divider(),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 2.0),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("My account",
-                            style:
-                                TextStyle(fontSize: 24, color: Colors.black)),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white)),
+                  const SizedBox(height: 10.0),
+                  Card(
+                    elevation: 4.0,
+                    margin: const EdgeInsets.fromLTRB(32.0, 8.0, 32.0, 16.0),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    child: Column(
+                      children: <Widget>[
+                        ListTile(
+                          leading: Icon(
+                            Icons.lock_outline,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Change HIGGEID"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            //open change password
+                          },
+                        ),
+                        _buildDivider(),
+                        ListTile(
+                          leading: Icon(
+                            Icons.language,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Change Language"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            //open change language
+                          },
+                        ),
+                        _buildDivider(),
+                        ListTile(
+                          leading: Icon(
+                            Icons.radio_button_checked_rounded,
+                            color: Colors.purple,
+                          ),
+                          title: Text("Change Match Radius"),
+                          trailing: Icon(Icons.keyboard_arrow_right),
+                          onTap: () {
+                            //open change location
+                          },
+                        ),
+                      ],
                     ),
                   ),
-                  Divider(),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 2.0),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("GPS",
-                            style:
-                                TextStyle(fontSize: 24, color: Colors.black)),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white)),
+                  const SizedBox(height: 20.0),
+                  Text(
+                    "Match Settings",
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.purple,
                     ),
                   ),
-                  Divider(),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 2.0),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text("Terms of Privacy",
-                            style:
-                                TextStyle(fontSize: 24, color: Colors.black)),
-                      ),
-                      style: ButtonStyle(
-                          backgroundColor:
-                              MaterialStateProperty.all(Colors.white)),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: _toggled1,
+                    title: Text(
+                        "Match users of different gender",
+                        style: Theme.of(context).textTheme.headline2
                     ),
+                    onChanged: (bool val) {
+                      setState(() {
+                        _toggled1 = val;
+                      });
+                    },
                   ),
-                  Divider(),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: false,
+                    title: Text(
+                        "Connect email to account",
+                        style: Theme.of(context).textTheme.headline2
+                    ),
+                    onChanged: null
+                  ),
+                  SwitchListTile(
+                    activeColor: Colors.purple,
+                    contentPadding: const EdgeInsets.all(0),
+                    value: true,
+                    title: Text("Received App Updates",
+                        style: Theme.of(context).textTheme.headline2
+                    ),
+                    onChanged: null,
+                  ),
+                  const SizedBox(height: 60.0),
                 ],
               ),
-            )),
+            ),
+            Positioned(
+              bottom: -20,
+              left: -20,
+              child: Container(
+                width: 80,
+                height: 80,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.purple,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: 00,
+              left: 00,
+              child: IconButton(
+                icon: Icon(
+                  Icons.power_settings_new_rounded,
+                  color: Colors.white,
+                  size: 30,
+                ),
+                onPressed: () {
+                  clearlocalstorage();
+                  Navigator.pushReplacementNamed(context, "/signupName");
+                },
+              ),
+            )
           ],
         ),
+    );
+  }
+
+  Container _buildDivider() {
+    return Container(
+      margin: const EdgeInsets.symmetric(
+        horizontal: 8.0,
       ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.startTop,
-      // floatingActionButton: Padding(
-      //   padding: const EdgeInsets.only(top: 10),
-      //   child: FloatingActionButton(
-      //     child: Icon(Icons.arrow_back),
-      //     onPressed: () {},
-      //   ),
-      // ),
+      width: double.infinity,
+      height: 1.0,
+      color: Colors.grey.shade400,
     );
   }
 }
