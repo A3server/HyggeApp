@@ -8,7 +8,7 @@ import 'package:HyggeApp/routes/Signup.dart';
 import 'package:HyggeApp/routes/TripStart.dart';
 
 MaterialColor myMainColor = const MaterialColor(
-  0xFF7924A3,
+  0xFF9a33b6,
   <int, Color>{
     50: Color(0xFFeac4f5),
     100: Color(0xFFe9a4fc),
