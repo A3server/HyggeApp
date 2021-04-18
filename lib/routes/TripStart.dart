@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -58,7 +59,7 @@ class TripStartState extends State<TripStart> {
         position: LatLng(
             req.data[1]["lat"],
             req.data[1]
-            ["lng"]), //LatLng(LOCATUAL.latitude, LOCATUAL.longitude),
+                ["lng"]), //LatLng(LOCATUAL.latitude, LOCATUAL.longitude),
         infoWindow: InfoWindow(
           title: "This is your location",
         ),

@@ -13,8 +13,8 @@ class BottomNavBar extends StatefulWidget {
   final Function onCancel;
   BottomNavBar(
       {required this.showcancel,
-        required this.onAccept,
-        required this.onCancel});
+      required this.onAccept,
+      required this.onCancel});
 
   BottomNavBarState createState() =>
       BottomNavBarState(showcancel, onAccept, onCancel);
