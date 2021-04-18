@@ -83,29 +83,30 @@ class _SplashScreenState extends State<SplashScreen>
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 60,
-                        fontWeight: FontWeight.w900),
+                        fontFamily: 'Poppins-Bold',
+                        fontWeight: FontWeight.w800),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 25.0),
+                  padding: const EdgeInsets.only(top: 40.0),
                   child: Text(
                     "danish noun",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white.withOpacity(0.7),
-                        fontSize: 20,
+                        fontSize: 14,
                         fontWeight: FontWeight.normal,
                         fontStyle: FontStyle.italic),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                  padding: const EdgeInsets.only(top: 2.0, left: 75, right: 75),
                   child: Text(
                     "Coziness and comfortable conviviality with feelings of wellness and contentment",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.white,
-                        fontSize: 22,
+                        fontSize: 14,
                         fontWeight: FontWeight.w200),
                   ),
                 )

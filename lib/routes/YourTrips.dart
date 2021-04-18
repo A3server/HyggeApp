@@ -28,88 +28,90 @@ class _YourTripsState extends State<YourTrips> {
     Trip(64566246, "12/03/2021", "Polo I", "Casa", 2121.79, "Patricio"),
     Trip(64566264, "28/02/2021", "Casa", "Polo III", 41245.03, "Nuno"),
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF9a33b6),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: ScrollPhysics(),
-          child: Column(children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Stack(children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Your Trips",
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                  ],
-                ),
-                Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 4.0),
-                      child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        ),
-                        iconSize: 37,
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    )),
-              ]),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            ListView.builder(
-              itemCount: trips.length,
-              physics: NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Card(
-                  color: Color(0xFFb8ed9a),
-                  child: ListTile(
-                    title: Align(
-                      child: Text(trips[index].date),
-                      alignment: Alignment.center,
-                    ),
-                    subtitle: Column(
-                      children: [
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "From: " + trips[index].from,
-                              style: TextStyle(color: Colors.black),
-                            )),
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("To: " + trips[index].to,
-                                style: TextStyle(color: Colors.black))),
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                                "Duration: " + trips[index].time.toString(),
-                                style: TextStyle(color: Colors.black))),
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text("With: " + trips[index].partner,
-                                style: TextStyle(color: Colors.black))),
-                      ],
-                    ),
-                  ),
-                );
-              },
-            ),
-          ]),
+      backgroundColor: Colors.grey.shade200,
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        leading: new IconButton(
+          icon: new Icon(Icons.arrow_back,size: 35.0),
+          onPressed: () => {
+            // Perform Your action here
+            Navigator.of(context).pop()
+          },
         ),
+        toolbarHeight: 70,
+        backgroundColor: Colors.purple,
+        title: Text(
+          'Your Trips',
+          style: TextStyle(color: Colors.white, fontStyle: FontStyle.normal, fontSize: 40),
+        ),
+      ),
+      body: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          SingleChildScrollView(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ListView.builder(
+                    itemCount: trips.length,
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        color: Color(0xFFb8ed9a),
+                        child: ListTile(
+                          title: Align(
+                            child: Text(
+                                trips[index].date,
+                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)
+                            ),
+                            alignment: Alignment.center,
+                          ),
+                          subtitle: Column(
+                            children: [
+                              //caixa para ajustar cima em baixo
+                              const SizedBox(height: 10.0),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                    "From: " + trips[index].from,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 15,
+                                    ),
+                                  )),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text("To: " + trips[index].to,
+                                      style: TextStyle(color: Colors.black,
+                                          fontSize: 15))),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                      "Duration: " +
+                                          trips[index].time.toString(),
+                                      style: TextStyle(color: Colors.black,
+                                          fontSize: 15))),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text("With: " + trips[index].partner,
+                                      style: TextStyle(color: Colors.black,
+                                          fontSize: 15))),
+                              const SizedBox(height: 10.0),
+                            ],
+                          ),
+                        ),
+                      );
+                    }),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

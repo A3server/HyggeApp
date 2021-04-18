@@ -56,7 +56,12 @@ class _SideBarState extends State<SideBar> {
                 ),
               ),
             ),
-            Divider(),
+            Divider(
+              height: 20,
+              thickness: 2,
+              indent: 20,
+              endIndent: 20,
+            ),
             Container(
               height: 100,
               child: ListTile(

@@ -30,7 +30,7 @@ showAlertDialogPass(BuildContext context) {
           padding: const EdgeInsets.only(bottom: 20.0),
           child: Icon(
             Icons.warning_amber_rounded,
-            size: 45,
+            size: 60,
             color: Colors.purple,
           ),
         ),
@@ -91,7 +91,7 @@ showAlertDialogPassName(BuildContext context) {
           padding: const EdgeInsets.only(bottom: 20.0),
           child: Icon(
             Icons.warning_amber_rounded,
-            size: 45,
+            size: 60,
             color: Colors.purple,
           ),
         ),
@@ -202,7 +202,7 @@ showAlertDialogNOTPASS(BuildContext context) {
           padding: const EdgeInsets.only(bottom: 20.0),
           child: Icon(
             Icons.help_outline_rounded,
-            size: 45,
+            size: 50,
             color: Colors.purple,
           ),
         ),
