@@ -35,7 +35,7 @@ showAlertDialogPass(BuildContext context) {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 20.0,left: 20),
+          padding: const EdgeInsets.only(right: 20.0, left: 20),
           child: Text(
             "This phone will be linked to your Hygge Account",
             textAlign: TextAlign.center,
@@ -99,7 +99,7 @@ showAlertDialogPassName(BuildContext context) {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(left:14.0,right:14),
+          padding: const EdgeInsets.only(left: 14.0, right: 14),
           child: Text(
             "This name will be linked to your Hygge Account",
             textAlign: TextAlign.center,
@@ -254,6 +254,7 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
     onPressed: () {
       //Navigator.of(context).pushReplacementNamed("/home");
       Navigator.of(context).pop(true);
+      showAlerDialogMASK(context);
     },
   );
 
@@ -306,7 +307,7 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
                   fontSize: 12,
                   fontWeight: FontWeight.w300,
                   color: Colors.black87),
-            )
+            ),
           ],
         ),
         actions: <Widget>[
@@ -315,6 +316,67 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [Aceitar, Recusar],
+            ),
+          ),
+        ],
+        elevation: 10,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+        ),
+      );
+      ;
+    },
+  );
+}
+
+Future<bool?> showAlerDialogMASK(BuildContext context) async {
+  // ignore: non_constant_identifier_names
+  Widget Ok = TextButton(
+    child: Text(
+      "Agree",
+      style: TextStyle(color: Colors.white),
+    ),
+    style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(Color(0xFFca8cdb)),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+                borderRadius: new BorderRadius.circular(10.0)))),
+    onPressed: () {
+      //Navigator.of(context).pushReplacementNamed("/home");
+      Navigator.of(context).pop();
+    },
+  );
+
+  return showDialog<bool>(
+    context: context,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text("I am using a mask!",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w600,
+                color: Colors.black)),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              "Acording to public guidlines please use a mask during your trips.",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w400,
+                  color: Colors.black),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Ok],
             ),
           ),
         ],
