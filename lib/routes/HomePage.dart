@@ -146,6 +146,21 @@ class _MyHomePageState extends State<HomePage> {
               preferredSize: Size.fromHeight(0.0),
               child: Text(''),
             ),
+            actions: <Widget>[
+              SizedBox(
+                width: 100,
+                height: 200,
+                child: IconButton(
+                  icon: Image.asset(
+                    "static/hyhyge21.png",
+                    height: 200,
+                    width: 200,
+                  ),
+                  onPressed: () => {
+                  },
+                ),
+              ),
+            ],
             pinned: _pinned,
             floating: _floating,
             flexibleSpace: FlexibleSpaceBar(
@@ -155,7 +170,7 @@ class _MyHomePageState extends State<HomePage> {
                   children: [
                     Positioned(
                       left: 15,
-                      top:15,
+                      top: 15,
                       child: IconButton(
                         icon: Icon(Icons.menu),
                         iconSize: 40,
@@ -176,8 +191,7 @@ class _MyHomePageState extends State<HomePage> {
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 45,
-                                  fontFamily: 'Poppins-Bold'
-                              ),
+                                  fontFamily: 'Poppins-Bold'),
                             ),
                             /*Padding(
                               padding: const EdgeInsets.only(top:0.0),
@@ -220,17 +234,17 @@ class _MyHomePageState extends State<HomePage> {
                 child: Stack(alignment: Alignment.center, children: <Widget>[
                   Align(
                     alignment: Alignment.center,
-                      child: Text(
-                        "Favourites",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF9a33b6),
-                          fontSize: 30,
-                        ),
+                    child: Text(
+                      "FAVOURITES",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF9a33b6),
+                        fontSize: 30,
                       ),
                     ),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 9.0,top: 0),
+                    padding: const EdgeInsets.only(right: 18.0, top: 0),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
@@ -276,10 +290,10 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
-                color:Colors.grey.shade100,
+                color: Colors.grey.shade100,
                 child: Center(
                   child: Text(
-                    "Featured",
+                    "FEATURED",
                     style: TextStyle(color: Color(0xFF9a33b6), fontSize: 30),
                   ),
                 ),
@@ -318,7 +332,7 @@ class _MyHomePageState extends State<HomePage> {
                 color: Colors.grey.shade100,
                 child: Center(
                   child: Text(
-                    "Latest",
+                    "LATEST",
                     style: TextStyle(color: Color(0xFF9a33b6), fontSize: 30),
                   ),
                 ),

@@ -5,17 +5,27 @@ import 'package:HyggeApp/components/Popups.dart';
 import 'dart:async';
 import '../main.dart';
 
+late String user;
+
 class BottomNavBar extends StatefulWidget {
   final bool showcancel;
-  BottomNavBar({required bool showcancel}) : this.showcancel = showcancel;
+  final Function onAccept;
+  final Function onCancel;
+  BottomNavBar(
+      {required this.showcancel,
+        required this.onAccept,
+        required this.onCancel});
 
-  BottomNavBarState createState() => BottomNavBarState(showcancel);
+  BottomNavBarState createState() =>
+      BottomNavBarState(showcancel, onAccept, onCancel);
 }
 
 class BottomNavBarState extends State<BottomNavBar> {
-  BottomNavBarState(this.showcancel);
+  BottomNavBarState(this.showcancel, this.onAccept, this.onCancel);
   bool showcancel;
-
+  Function onAccept;
+  Function onCancel;
+  bool? accepted;
   @override
   Widget build(BuildContext context) {
     Widget swapwidget = showcancel ? cancelBTNS(context) : NormalBTNS(context);
@@ -73,11 +83,12 @@ class BottomNavBarState extends State<BottomNavBar> {
           onPressed: () => {
             setState(() {
               showcancel = !showcancel;
+              onCancel();
             })
           },
           style: TextButton.styleFrom(
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(35)),
             elevation: 1,
             padding: EdgeInsets.only(right: 40, left: 40, top: 5, bottom: 5),
             backgroundColor: myMainColor.shade100,
@@ -91,7 +102,7 @@ class BottomNavBarState extends State<BottomNavBar> {
 
   Widget NormalBTNS(context) {
     final TripARGS args =
-        ModalRoute.of(context)!.settings.arguments as TripARGS;
+    ModalRoute.of(context)!.settings.arguments as TripARGS;
     return Column(children: <Widget>[
       Padding(
         padding: const EdgeInsets.only(top: 20.0),
@@ -129,8 +140,17 @@ class BottomNavBarState extends State<BottomNavBar> {
             child: TextButton(
               onPressed: () {
                 setState(() {
-                  showAlerDialogUSERFOUND(context);
                   showcancel = !showcancel;
+                  Timer(Duration(seconds: 4), () {
+                    user = "https://www.woolha.com/media/2020/03/eevee.png";
+
+                    showAlerDialogUSERFOUND(context, user).then((value) {
+                      accepted = value;
+                      if (accepted! ? true : false) {
+                        onAccept();
+                      }
+                    });
+                  });
                 });
               },
               child: Text("Let's Go!",
@@ -143,7 +163,7 @@ class BottomNavBarState extends State<BottomNavBar> {
                     borderRadius: BorderRadius.circular(35)),
                 elevation: 1,
                 padding:
-                    EdgeInsets.only(right: 40, left: 40, top: 5, bottom: 5),
+                EdgeInsets.only(right: 40, left: 40, top: 5, bottom: 5),
                 backgroundColor: myMainColor.shade100,
                 //normal color
                 primary: Color(0xFF631d77), //onclick colors
@@ -154,8 +174,6 @@ class BottomNavBarState extends State<BottomNavBar> {
       )
     ]);
   }
-
-
 
   void searching(bool searching) {
     const oneSec = const Duration(seconds: 1);
