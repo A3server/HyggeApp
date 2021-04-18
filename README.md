@@ -90,6 +90,7 @@ Here's some:
 
 ## Getting Started
 
+This build is just a prototipe.
 If you want to test this on your computer, you need to have an emulator and [Flutter SDK](https://flutter.dev/docs/get-started/install/) installed.
 
 ### Prerequisites
