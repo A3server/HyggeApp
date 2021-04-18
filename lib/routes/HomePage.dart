@@ -281,30 +281,33 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
             return Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
                 child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  Navigator.pushNamed(
-                    context,
-                    "/TripStart",
-                    arguments: TripARGS(
-                        favouriteLocations[index].nome,
-                        favouriteLocations[index]
-                            .Localizacao), //passing the name and the POS
-                  );
-                });
-              },
-              child: ListTile(
-                title: Text(
-                  favouriteLocations[index].nome,
-                  style: TextStyle(fontSize: 18),
-                ),
-                leading: Icon(
-                  Icons.star,
-                  color: Colors.black,
-                ),
-              ),
-            ));
+                  onTap: () {
+                    setState(() {
+                      Navigator.pushNamed(
+                        context,
+                        "/TripStart",
+                        arguments: TripARGS(
+                            favouriteLocations[index].nome,
+                            favouriteLocations[index]
+                                .Localizacao), //passing the name and the POS
+                      );
+                    });
+                  },
+                  child: ListTile(
+                    title: Text(
+                      favouriteLocations[index].nome,
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    leading: Icon(
+                      Icons.star,
+                      color: Colors.black,
+                    ),
+                  ),
+                ));
           }, childCount: favouriteLocations.length)),
           SliverList(
             delegate: SliverChildListDelegate([
@@ -323,28 +326,32 @@ class _MyHomePageState extends State<HomePage> {
               delegate: SliverChildBuilderDelegate((context, index) {
             return Card(
                 //featured
-                child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  Navigator.pushNamed(
-                    context,
-                    "/TripStart",
-                    arguments: TripARGS(
-                        featuredLocations[index].nome,
-                        featuredLocations[index]
-                            .Localizacao), //passing the name and the POS
-                  );
-                });
-              },
-              child: ListTile(
-                title: Text(featuredLocations[index].nome,
-                    style: TextStyle(fontSize: 18)),
-                leading: Icon(
-                  Icons.school,
-                  color: Colors.black,
+                //
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
                 ),
-              ),
-            ));
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      Navigator.pushNamed(
+                        context,
+                        "/TripStart",
+                        arguments: TripARGS(
+                            featuredLocations[index].nome,
+                            featuredLocations[index]
+                                .Localizacao), //passing the name and the POS
+                      );
+                    });
+                  },
+                  child: ListTile(
+                    title: Text(featuredLocations[index].nome,
+                        style: TextStyle(fontSize: 18)),
+                    leading: Icon(
+                      Icons.school,
+                      color: Colors.black,
+                    ),
+                  ),
+                ));
           }, childCount: featuredLocations.length)),
           SliverList(
             delegate: SliverChildListDelegate([
@@ -362,6 +369,9 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
               delegate: SliverChildBuilderDelegate((context, index) {
             return Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
               child: GestureDetector(
                 onTap: () {
                   setState(() {
