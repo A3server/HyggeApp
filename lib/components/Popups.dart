@@ -34,11 +34,14 @@ showAlertDialogPass(BuildContext context) {
             color: Colors.purple,
           ),
         ),
-        Text(
-          "This phone will be linked to your Hygge.",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.w100, color: Colors.black),
+        Padding(
+          padding: const EdgeInsets.only(right: 20.0,left: 20),
+          child: Text(
+            "This phone will be linked to your Hygge Account",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 15, fontWeight: FontWeight.w100, color: Colors.black),
+          ),
         ),
       ],
     ),
@@ -83,7 +86,7 @@ showAlertDialogPassName(BuildContext context) {
     title: Text("Are you sure you want to select this name?",
         textAlign: TextAlign.center,
         style: TextStyle(
-            fontSize: 20, fontWeight: FontWeight.w100, color: Colors.black)),
+            fontSize: 22, fontWeight: FontWeight.w100, color: Colors.black)),
     content: Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -95,11 +98,14 @@ showAlertDialogPassName(BuildContext context) {
             color: Colors.purple,
           ),
         ),
-        Text(
-          "This name will be linked to your Hygge Account.",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.w100, color: Colors.black),
+        Padding(
+          padding: const EdgeInsets.only(left:14.0,right:14),
+          child: Text(
+            "This name will be linked to your Hygge Account",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 16, fontWeight: FontWeight.w100, color: Colors.black),
+          ),
         ),
       ],
     ),
@@ -207,10 +213,10 @@ showAlertDialogNOTPASS(BuildContext context) {
           ),
         ),
         Text(
-          "We are sorry this phone number doesnt exist :(",
+          "We are sorry this phone number doesn't exist :(",
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.w100, color: Colors.black),
+              fontSize: 18, fontWeight: FontWeight.w100, color: Colors.black),
         ),
       ],
     ),

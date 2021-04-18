@@ -31,7 +31,7 @@ class _SideBarState extends State<SideBar> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Color(0xFFaedd94),
+        color: Colors.grey.shade100,
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -58,14 +58,14 @@ class _SideBarState extends State<SideBar> {
                                 '$AccountName',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    fontSize: 25, fontWeight: FontWeight.w800, color: Colors.black
+                                    fontSize: 28, fontWeight: FontWeight.w800, color:Colors.black,
                                 ),
                               ),
                               Text(
                                 '$PHONENR',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w800, color: Colors.black
+                                    fontSize: 18, fontWeight: FontWeight.w800, color:Color(0xFF9a33b6),
                                 ),
                               ),
                               ]),
@@ -86,7 +86,7 @@ class _SideBarState extends State<SideBar> {
               child: ListTile(
                 leading: Container(
                   height: 100,
-                  child: Icon(Icons.location_on, color: Colors.black,size: 40),
+                  child: Icon(Icons.location_on, color: Color(0xFF9a33b6),size: 40),
                 ),
                 title: Center(
                   child: FutureBuilder<LOCATIONS>(
@@ -117,7 +117,7 @@ class _SideBarState extends State<SideBar> {
               child: ListTile(
                 leading: Icon(
                     Icons.directions_car_rounded,
-                    color: Colors.black,
+                    color: Color(0xFF9a33b6),
                     size: 40,
                   ),
                 title: Text('Your Trips',
@@ -130,7 +130,7 @@ class _SideBarState extends State<SideBar> {
               child: ListTile(
                 leading: Icon(
                   Icons.settings_rounded,
-                  color: Colors.black,
+                  color: Color(0xFF9a33b6),
                   size: 40,
                 ),
                 title:
@@ -149,7 +149,7 @@ class _SideBarState extends State<SideBar> {
               child: ListTile(
                 leading: Icon(
                   Icons.help_outline_rounded,
-                  color: Colors.black,
+                  color: Color(0xFF9a33b6),
                   size: 40,
                 ),
                 title: Text('Help', style: Theme.of(context).textTheme.headline3),

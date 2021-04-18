@@ -92,7 +92,7 @@ class Signupstate extends State<Signup> {
                 children: <Widget>[
                   Padding(
                     padding:
-                    const EdgeInsets.only(top: 20.0, left: 20, right: 20,bottom:10),
+                    const EdgeInsets.only(top: 10.0, left: 20, right: 20,bottom:10),
                     child: Text(
                       "Tell us your name!",
                       textAlign: TextAlign.center,
@@ -116,7 +116,7 @@ class Signupstate extends State<Signup> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 150.0),
+                    padding: const EdgeInsets.only(top: 80.0),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
@@ -299,7 +299,7 @@ class SignupData extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 120.0),
+                    padding: const EdgeInsets.only(top: 100.0),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
