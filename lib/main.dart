@@ -61,8 +61,8 @@ void main() {
         "/signupPhone": (context) => SignupData(),
         "/home": (context) => HomePage(),
         "/YourTrips": (context) => YourTrips(),
-        "/Settings": (context) => Settings(),
+        "/Settings": (context) => SettingsOnePage(),
         "/Help": (context) => Help(),
-        //"/TripStart": (context) => TripStart()
+        "/TripStart": (context) => TripStart()
       }));
 }
