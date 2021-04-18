@@ -1,3 +1,4 @@
+import 'package:HyggeApp/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,7 +31,7 @@ class _SideBarState extends State<SideBar> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Color(0xFFbef79e),
+        color: Color(0xFFaedd94),
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
@@ -63,7 +64,9 @@ class _SideBarState extends State<SideBar> {
                               Text(
                                 '$PHONENR',
                                 textAlign: TextAlign.start,
-                                style: Theme.of(context).textTheme.headline2,
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w800, color: Colors.black
+                                ),
                               ),
                               ]),
                           ),
@@ -83,7 +86,7 @@ class _SideBarState extends State<SideBar> {
               child: ListTile(
                 leading: Container(
                   height: 100,
-                  child: Icon(Icons.location_on, color: Colors.black),
+                  child: Icon(Icons.location_on, color: Colors.black,size: 40),
                 ),
                 title: Center(
                   child: FutureBuilder<LOCATIONS>(
@@ -115,6 +118,7 @@ class _SideBarState extends State<SideBar> {
                 leading: Icon(
                     Icons.directions_car_rounded,
                     color: Colors.black,
+                    size: 40,
                   ),
                 title: Text('Your Trips',
                     style: Theme.of(context).textTheme.headline3),
@@ -127,6 +131,7 @@ class _SideBarState extends State<SideBar> {
                 leading: Icon(
                   Icons.settings_rounded,
                   color: Colors.black,
+                  size: 40,
                 ),
                 title:
                     Text('Settings', style: Theme.of(context).textTheme.headline3),
@@ -145,6 +150,7 @@ class _SideBarState extends State<SideBar> {
                 leading: Icon(
                   Icons.help_outline_rounded,
                   color: Colors.black,
+                  size: 40,
                 ),
                 title: Text('Help', style: Theme.of(context).textTheme.headline3),
                 onTap: () => Navigator.pushNamed(context, "/Help"),
