@@ -26,9 +26,12 @@ class BottomNavBarState extends State<BottomNavBar> {
   Function onAccept;
   Function onCancel;
   bool? accepted;
+
+  Widget? swapwidget;
+
   @override
   Widget build(BuildContext context) {
-    Widget swapwidget = showcancel ? cancelBTNS(context) : NormalBTNS(context);
+    swapwidget = showcancel ? cancelBTNS(context) : NormalBTNS(context);
 
     double width = MediaQuery.of(context).size.width;
     return Container(
@@ -40,8 +43,6 @@ class BottomNavBarState extends State<BottomNavBar> {
               topLeft: Radius.circular(30), topRight: Radius.circular(30))),
       child: AnimatedSwitcher(
         duration: Duration(seconds: 5),
-        transitionBuilder: (Widget child, Animation<double> animation) =>
-            ScaleTransition(child: child, scale: animation),
         child: swapwidget,
       ),
     );
@@ -61,7 +62,8 @@ class BottomNavBarState extends State<BottomNavBar> {
         child: Text(
           'Searching for a pair...',
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline1,
+          style: TextStyle(
+              fontSize: 32, fontWeight: FontWeight.w800, color: Colors.black),
         ),
       ),
       Padding(
@@ -100,9 +102,75 @@ class BottomNavBarState extends State<BottomNavBar> {
     ]);
   }
 
+  
   Widget NormalBTNS(context) {
     final TripARGS args =
     ModalRoute.of(context)!.settings.arguments as TripARGS;
+
+    Widget acceptedWidget(context) {
+      final TripARGS args =
+      ModalRoute.of(context)!.settings.arguments as TripARGS;
+      return Column(children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Icon(
+            Icons.info_rounded,
+            size: 45,
+          ),
+        ),
+        Text(
+          'Pair found!',
+          style: TextStyle(
+              fontSize: 35, fontWeight: FontWeight.w800, color: Colors.black),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 0.0),
+          child: Text(
+            args.Nameofloc,
+            style: TextStyle(
+                fontSize: 30, fontWeight: FontWeight.w400, color: Colors.black),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 8.0, left: 20, right: 20),
+          child: Text(
+            'Go meet Eduardo Nunes!',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.headline3,
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed("/TripStart");
+                },
+                child: Text("Cancel",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontStyle: FontStyle.normal,
+                        color: Colors.white)),
+                style: TextButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(35)),
+                  elevation: 1,
+                  padding:
+                  EdgeInsets.only(right: 40, left: 40, top: 5, bottom: 5),
+                  backgroundColor: myMainColor.shade100,
+                  //normal color
+                  primary: Color(0xFF631d77), //onclick colors
+                ),
+              ),
+            )
+          ],
+        )
+      ]);
+    }
+
+
     return Column(children: <Widget>[
       Padding(
         padding: const EdgeInsets.only(top: 20.0),
@@ -148,6 +216,8 @@ class BottomNavBarState extends State<BottomNavBar> {
                       accepted = value;
                       if (accepted! ? true : false) {
                         onAccept();
+                        //print("ACCEPTED CHANGE WIDGETY NOW");
+                        //swapwidget = acceptedWidget(context);
                       }
                     });
                   });
@@ -173,13 +243,5 @@ class BottomNavBarState extends State<BottomNavBar> {
         ],
       )
     ]);
-  }
-
-  void searching(bool searching) {
-    const oneSec = const Duration(seconds: 1);
-
-    new Timer.periodic(oneSec, (Timer t) {
-      if (!searching) t.cancel();
-    });
   }
 }

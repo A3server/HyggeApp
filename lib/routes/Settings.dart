@@ -91,7 +91,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                       ),
                     ),
                     leading: CircleAvatar(
-                      backgroundImage: NetworkImage("https://www.woolha.com/media/2020/03/eevee.png"),
+                      backgroundImage: NetworkImage("https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
                     ),
                     trailing: Icon(
                       Icons.edit,

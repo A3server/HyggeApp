@@ -35,29 +35,45 @@ class _SideBarState extends State<SideBar> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             Container(
-              height: 170,
+              height: 290,
               child: Padding(
                 padding: EdgeInsets.only(top: 70),
                 child: Column(
                   children: <Widget>[
-                    Text(
-                      '$AccountName',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 32, fontWeight: FontWeight.w800, color: Colors.black
-                      ),
-                    ),
-                    Text(
-                      '$PHONENR',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
+                    Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: CircleAvatar(
+                              backgroundImage: NetworkImage("https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
+                              radius: 50,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[ Text(
+                                '$AccountName',
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.w800, color: Colors.black
+                                ),
+                              ),
+                              Text(
+                                '$PHONENR',
+                                textAlign: TextAlign.start,
+                                style: Theme.of(context).textTheme.headline2,
+                              ),
+                              ]),
+                          ),
+                        ]),
                   ],
                 ),
               ),
             ),
             Divider(
-              height: 20,
+              height: 0,
               thickness: 2,
               indent: 20,
               endIndent: 20,
@@ -106,7 +122,7 @@ class _SideBarState extends State<SideBar> {
               ),
             ),
             Container(
-              height: 80,
+              height: 70,
               child: ListTile(
                 leading: Icon(
                   Icons.settings_rounded,
@@ -116,6 +132,12 @@ class _SideBarState extends State<SideBar> {
                     Text('Settings', style: Theme.of(context).textTheme.headline3),
                 onTap: () => Navigator.pushNamed(context, "/Settings"),
               ),
+            ),
+            Divider(
+              height: 30,
+              thickness: 2,
+              indent: 20,
+              endIndent: 20,
             ),
             Container(
               height: 80,

@@ -26,8 +26,8 @@ class _SplashScreenState extends State<SplashScreen>
     final prefs = await SharedPreferences.getInstance();
     String value = (prefs.getString('UserName') ?? 0)
         .toString(); //vejo se tenho UserName na localStorage.
-    print("VALUE: $value");
-    print("Route: $Route");
+    //print("VALUE: $value");
+    //print("Route: $Route");
 
     if (value != "0") {
       //vejo se tenho, se tiver route para a home se não precisamos de fazer Signup.

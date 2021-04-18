@@ -83,7 +83,7 @@ class RequestAssistant {
       totaldistance = calculateDistance(
           currentPosition.latitude, currentPosition.latitude, data[0]["lat"],
           data[0]["lng"]);
-      print("$totaldistance");
+      //print("$totaldistance");
 
       if (totaldistance < raio) {
         print("Match found");

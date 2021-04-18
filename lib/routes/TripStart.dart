@@ -86,7 +86,7 @@ class TripStartState extends State<TripStart> {
 
   addMarker(String id, LatLng position, Uint8List marker) {
     setState(() {
-      print(position);
+      //print(position);
       markers[MarkerId(id)] = Marker(
           markerId: MarkerId(id),
           position: position,
@@ -115,11 +115,10 @@ class TripStartState extends State<TripStart> {
                         child: BottomNavBar(
                           showcancel: false,
                           onAccept: () async {
-                            print("YOOOOOOOOOOOOOO");
+                            //print("YOOOOOOOOOOOOOO");
                             _markerIcon = await getBytesFromAsset(
                                 "assets/eeve-01.png", 100);
-                            print("_marker done");
-
+                            //print("_marker done");
                             print(req.data[0]["lat"]);
                             addMarker(
                                 "1",
