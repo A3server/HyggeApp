@@ -25,7 +25,6 @@
 
   <p align="center">
     HyggeApp is Live!
-  
     <br />
     <a href="https://github.com/A3server/HyggeApp"><strong>Explore the docs »</strong></a>
     <br />
