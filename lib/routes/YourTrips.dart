@@ -64,13 +64,20 @@ class _YourTripsState extends State<YourTrips> {
                     shrinkWrap: true,
                     itemBuilder: (context, index) {
                       return Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                         color: Color(0xFFb8ed9a),
                         child: ListTile(
-                          title: Align(
-                            child: Text(trips[index].date,
-                                style: TextStyle(
-                                    fontSize: 20, fontWeight: FontWeight.bold)),
-                            alignment: Alignment.center,
+                          title: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Align(
+                              child: Text(trips[index].date,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold)),
+                              alignment: Alignment.center,
+                            ),
                           ),
                           subtitle: Column(
                             children: [
