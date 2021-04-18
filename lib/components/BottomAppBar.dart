@@ -67,7 +67,7 @@ class BottomNavBarState extends State<BottomNavBar> {
       Padding(
         padding: const EdgeInsets.only(top: 20.0, left: 20, right: 20),
         child: Text(
-          'You can cancel at any time your search!',
+          'You can cancel your search at any time!',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headline3,
         ),

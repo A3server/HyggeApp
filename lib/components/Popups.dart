@@ -246,7 +246,8 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
             RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0)))),
     onPressed: () {
-      Navigator.of(context).pushReplacementNamed("/home");
+      //Navigator.of(context).pushReplacementNamed("/home");
+      Navigator.of(context).pop();
     },
   );
 
@@ -259,9 +260,12 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
         backgroundColor: MaterialStateProperty.all(Color(0xFFca8cdb)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0)))),
+                borderRadius: new BorderRadius.circular(10.0)
+            )
+        )
+    ),
     onPressed: () {
-      //Navigator.pushReplacementNamed(context, "/signupPhone");
+
       Navigator.of(context).pop(false);
     },
   );

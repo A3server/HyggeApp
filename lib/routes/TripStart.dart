@@ -52,10 +52,11 @@ class TripStartState extends State<TripStart> {
     //_markerIcon = await getBytesFromAsset('static/iconimg.png', 150);
 
     setState(() {
-      //LOCATUAL = res; show case purposes
+      //LOCATUAL = res;
 
       markers[MarkerId("0")] = Marker(
         markerId: MarkerId("0"),
+        ///Como o proposito desta build é dar showcase, decidimos usar uma localização fixa.
         position: LatLng(
             req.data[1]["lat"],
             req.data[1]
