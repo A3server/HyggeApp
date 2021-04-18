@@ -31,8 +31,7 @@ class _SideBarState extends State<SideBar> {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: BorderRadius.only(
-          topRight: Radius.circular(20.0), bottomRight: Radius.circular(20.0)
-      ),
+          topRight: Radius.circular(20.0), bottomRight: Radius.circular(20.0)),
       child: Drawer(
         child: Container(
           color: Colors.grey.shade100,
@@ -45,36 +44,41 @@ class _SideBarState extends State<SideBar> {
                   padding: EdgeInsets.only(top: 70),
                   child: Column(
                     children: <Widget>[
-                      Column(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: CircleAvatar(
-                                backgroundImage: NetworkImage("https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
-                                radius: 50,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: <Widget>[ Text(
+                      Column(children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: CircleAvatar(
+                            backgroundImage: NetworkImage(
+                                "https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
+                            radius: 50,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text(
                                   '$AccountName',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      fontSize: 28, fontWeight: FontWeight.w800, color:Colors.black,
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w800,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 Text(
                                   '$PHONENR',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                      fontSize: 18, fontWeight: FontWeight.w800, color:Color(0xFF9a33b6),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w800,
+                                    color: Color(0xFF9a33b6),
                                   ),
                                 ),
-                                ]),
-                            ),
-                          ]),
+                              ]),
+                        ),
+                      ]),
                     ],
                   ),
                 ),
@@ -90,40 +94,40 @@ class _SideBarState extends State<SideBar> {
                 child: ListTile(
                   leading: Container(
                     height: 100,
-                    child: Icon(Icons.location_on, color: Color(0xFF9a33b6),size: 40),
+                    child: Icon(Icons.location_on,
+                        color: Color(0xFF9a33b6), size: 40),
                   ),
                   title: Center(
-                    child: FutureBuilder<LOCATIONS>(
-                      future: futureLOCATION,
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          String show = snapshot.data!.ADDRS;
-                          List addrsplit = show.split(",");
-                          String toshow = addrsplit[0] + ", " + addrsplit[2];
-                          return Text(toshow,
-                              textAlign: TextAlign.start,
-                              style: Theme.of(context).textTheme.headline3);
-                        } else if (snapshot.hasError) {
-                          print("${snapshot.error}");
-                          return Text("Não encontrado! :(",
-                              textAlign: TextAlign.start,
-                              style: Theme.of(context).textTheme.headline3);
-                        }
-                        // show a loading spinner.
-                          return LinearProgressIndicator();
-                      },
-                    )
-                  ),
+                      child: FutureBuilder<LOCATIONS>(
+                    future: futureLOCATION,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasData) {
+                        String show = snapshot.data!.ADDRS;
+                        List addrsplit = show.split(",");
+                        String toshow = addrsplit[0] + ", " + addrsplit[2];
+                        return Text(toshow,
+                            textAlign: TextAlign.start,
+                            style: Theme.of(context).textTheme.headline3);
+                      } else if (snapshot.hasError) {
+                        print("${snapshot.error}");
+                        return Text("Não encontrado! :(",
+                            textAlign: TextAlign.start,
+                            style: Theme.of(context).textTheme.headline3);
+                      }
+                      // show a loading spinner.
+                      return LinearProgressIndicator();
+                    },
+                  )),
                 ),
               ),
               Container(
                 height: 80,
                 child: ListTile(
                   leading: Icon(
-                      Icons.directions_car_rounded,
-                      color: Color(0xFF9a33b6),
-                      size: 40,
-                    ),
+                    Icons.directions_car_rounded,
+                    color: Color(0xFF9a33b6),
+                    size: 40,
+                  ),
                   title: Text('Your Trips',
                       style: Theme.of(context).textTheme.headline3),
                   onTap: () => Navigator.pushNamed(context, "/YourTrips"),
@@ -137,8 +141,8 @@ class _SideBarState extends State<SideBar> {
                     color: Color(0xFF9a33b6),
                     size: 40,
                   ),
-                  title:
-                      Text('Settings', style: Theme.of(context).textTheme.headline3),
+                  title: Text('Settings',
+                      style: Theme.of(context).textTheme.headline3),
                   onTap: () => Navigator.pushNamed(context, "/Settings"),
                 ),
               ),
@@ -156,7 +160,8 @@ class _SideBarState extends State<SideBar> {
                     color: Color(0xFF9a33b6),
                     size: 40,
                   ),
-                  title: Text('Help', style: Theme.of(context).textTheme.headline3),
+                  title: Text('Help',
+                      style: Theme.of(context).textTheme.headline3),
                   onTap: () => Navigator.pushNamed(context, "/Help"),
                 ),
               ),
@@ -175,4 +180,3 @@ class _SideBarState extends State<SideBar> {
     });
   }
 }
-
