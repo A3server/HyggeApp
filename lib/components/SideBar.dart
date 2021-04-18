@@ -29,134 +29,139 @@ class _SideBarState extends State<SideBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: Container(
-        color: Colors.grey.shade100,
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-              height: 290,
-              child: Padding(
-                padding: EdgeInsets.only(top: 70),
-                child: Column(
-                  children: <Widget>[
-                    Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage("https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
-                              radius: 50,
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20.0), bottomRight: Radius.circular(20.0)
+      ),
+      child: Drawer(
+        child: Container(
+          color: Colors.grey.shade100,
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                height: 290,
+                child: Padding(
+                  padding: EdgeInsets.only(top: 70),
+                  child: Column(
+                    children: <Widget>[
+                      Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage("https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
+                                radius: 50,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[ Text(
-                                '$AccountName',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    fontSize: 28, fontWeight: FontWeight.w800, color:Colors.black,
+                            Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: <Widget>[ Text(
+                                  '$AccountName',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      fontSize: 28, fontWeight: FontWeight.w800, color:Colors.black,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                '$PHONENR',
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                    fontSize: 18, fontWeight: FontWeight.w800, color:Color(0xFF9a33b6),
+                                Text(
+                                  '$PHONENR',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      fontSize: 18, fontWeight: FontWeight.w800, color:Color(0xFF9a33b6),
+                                  ),
                                 ),
-                              ),
-                              ]),
-                          ),
-                        ]),
-                  ],
+                                ]),
+                            ),
+                          ]),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Divider(
-              height: 0,
-              thickness: 2,
-              indent: 20,
-              endIndent: 20,
-            ),
-            Container(
-              height: 100,
-              child: ListTile(
-                leading: Container(
-                  height: 100,
-                  child: Icon(Icons.location_on, color: Color(0xFF9a33b6),size: 40),
-                ),
-                title: Center(
-                  child: FutureBuilder<LOCATIONS>(
-                    future: futureLOCATION,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        String show = snapshot.data!.ADDRS;
-                        List addrsplit = show.split(",");
-                        String toshow = addrsplit[0] + ", " + addrsplit[2];
-                        return Text(toshow,
-                            textAlign: TextAlign.start,
-                            style: Theme.of(context).textTheme.headline3);
-                      } else if (snapshot.hasError) {
-                        print("${snapshot.error}");
-                        return Text("Não encontrado! :(",
-                            textAlign: TextAlign.start,
-                            style: Theme.of(context).textTheme.headline3);
-                      }
-                      // show a loading spinner.
-                        return LinearProgressIndicator();
-                    },
-                  )
+              Divider(
+                height: 0,
+                thickness: 2,
+                indent: 20,
+                endIndent: 20,
+              ),
+              Container(
+                height: 100,
+                child: ListTile(
+                  leading: Container(
+                    height: 100,
+                    child: Icon(Icons.location_on, color: Color(0xFF9a33b6),size: 40),
+                  ),
+                  title: Center(
+                    child: FutureBuilder<LOCATIONS>(
+                      future: futureLOCATION,
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          String show = snapshot.data!.ADDRS;
+                          List addrsplit = show.split(",");
+                          String toshow = addrsplit[0] + ", " + addrsplit[2];
+                          return Text(toshow,
+                              textAlign: TextAlign.start,
+                              style: Theme.of(context).textTheme.headline3);
+                        } else if (snapshot.hasError) {
+                          print("${snapshot.error}");
+                          return Text("Não encontrado! :(",
+                              textAlign: TextAlign.start,
+                              style: Theme.of(context).textTheme.headline3);
+                        }
+                        // show a loading spinner.
+                          return LinearProgressIndicator();
+                      },
+                    )
+                  ),
                 ),
               ),
-            ),
-            Container(
-              height: 80,
-              child: ListTile(
-                leading: Icon(
-                    Icons.directions_car_rounded,
+              Container(
+                height: 80,
+                child: ListTile(
+                  leading: Icon(
+                      Icons.directions_car_rounded,
+                      color: Color(0xFF9a33b6),
+                      size: 40,
+                    ),
+                  title: Text('Your Trips',
+                      style: Theme.of(context).textTheme.headline3),
+                  onTap: () => Navigator.pushNamed(context, "/YourTrips"),
+                ),
+              ),
+              Container(
+                height: 70,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.settings_rounded,
                     color: Color(0xFF9a33b6),
                     size: 40,
                   ),
-                title: Text('Your Trips',
-                    style: Theme.of(context).textTheme.headline3),
-                onTap: () => Navigator.pushNamed(context, "/YourTrips"),
-              ),
-            ),
-            Container(
-              height: 70,
-              child: ListTile(
-                leading: Icon(
-                  Icons.settings_rounded,
-                  color: Color(0xFF9a33b6),
-                  size: 40,
+                  title:
+                      Text('Settings', style: Theme.of(context).textTheme.headline3),
+                  onTap: () => Navigator.pushNamed(context, "/Settings"),
                 ),
-                title:
-                    Text('Settings', style: Theme.of(context).textTheme.headline3),
-                onTap: () => Navigator.pushNamed(context, "/Settings"),
               ),
-            ),
-            Divider(
-              height: 30,
-              thickness: 2,
-              indent: 20,
-              endIndent: 20,
-            ),
-            Container(
-              height: 80,
-              child: ListTile(
-                leading: Icon(
-                  Icons.help_outline_rounded,
-                  color: Color(0xFF9a33b6),
-                  size: 40,
+              Divider(
+                height: 30,
+                thickness: 2,
+                indent: 20,
+                endIndent: 20,
+              ),
+              Container(
+                height: 80,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.help_outline_rounded,
+                    color: Color(0xFF9a33b6),
+                    size: 40,
+                  ),
+                  title: Text('Help', style: Theme.of(context).textTheme.headline3),
+                  onTap: () => Navigator.pushNamed(context, "/Help"),
                 ),
-                title: Text('Help', style: Theme.of(context).textTheme.headline3),
-                onTap: () => Navigator.pushNamed(context, "/Help"),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
