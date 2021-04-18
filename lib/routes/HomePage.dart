@@ -223,7 +223,8 @@ class _MyHomePageState extends State<HomePage> {
                           decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
-                              contentPadding: EdgeInsets.only(left: 20),
+                              contentPadding:
+                                  EdgeInsets.only(left: 20, bottom: 7),
                               focusedBorder: UnderlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Colors.grey, width: 1),
