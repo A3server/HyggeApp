@@ -239,7 +239,6 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
     child: Text(
       "Accept",
       style: TextStyle(color: Colors.white),
-
     ),
     style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(Color(0xFFca8cdb)),
@@ -247,7 +246,7 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
             RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(10.0)))),
     onPressed: () {
-      //change bottom bar
+      //Navigator.of(context).pushReplacementNamed("/home");
       Navigator.of(context).pop(true);
     },
   );
@@ -261,15 +260,11 @@ Future<bool?> showAlerDialogUSERFOUND(BuildContext context, String user) async {
         backgroundColor: MaterialStateProperty.all(Color(0xFFca8cdb)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(10.0)
-            )
-        )
-    ),
+                borderRadius: new BorderRadius.circular(10.0)))),
     onPressed: () {
       Navigator.of(context).pop(false);
     },
   );
-
 
   return showDialog<bool>(
     context: context,

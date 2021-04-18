@@ -31,12 +31,12 @@ class _YourTripsState extends State<YourTrips> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         leading: new IconButton(
-          icon: new Icon(Icons.arrow_back,size: 35.0),
+          icon: new Icon(Icons.arrow_back, size: 35.0),
           onPressed: () => {
             // Perform Your action here
             Navigator.of(context).pop()
@@ -46,7 +46,8 @@ class _YourTripsState extends State<YourTrips> {
         backgroundColor: Colors.purple,
         title: Text(
           'Your Trips',
-          style: TextStyle(color: Colors.white, fontStyle: FontStyle.normal, fontSize: 40),
+          style: TextStyle(
+              color: Colors.white, fontStyle: FontStyle.normal, fontSize: 40),
         ),
       ),
       body: Stack(
@@ -66,10 +67,9 @@ class _YourTripsState extends State<YourTrips> {
                         color: Color(0xFFb8ed9a),
                         child: ListTile(
                           title: Align(
-                            child: Text(
-                                trips[index].date,
-                                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold)
-                            ),
+                            child: Text(trips[index].date,
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold)),
                             alignment: Alignment.center,
                           ),
                           subtitle: Column(
@@ -88,20 +88,20 @@ class _YourTripsState extends State<YourTrips> {
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text("To: " + trips[index].to,
-                                      style: TextStyle(color: Colors.black,
-                                          fontSize: 15))),
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text(
                                       "Duration: " +
                                           trips[index].time.toString(),
-                                      style: TextStyle(color: Colors.black,
-                                          fontSize: 15))),
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
                               Align(
                                   alignment: Alignment.centerLeft,
                                   child: Text("With: " + trips[index].partner,
-                                      style: TextStyle(color: Colors.black,
-                                          fontSize: 15))),
+                                      style: TextStyle(
+                                          color: Colors.black, fontSize: 15))),
                               const SizedBox(height: 10.0),
                             ],
                           ),

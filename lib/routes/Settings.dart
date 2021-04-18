@@ -10,14 +10,12 @@ class SettingsOnePage extends StatefulWidget {
 }
 
 class _SettingsOnePageState extends State<SettingsOnePage> {
-
   // ignore: non_constant_identifier_names
   String AccountName = "placeholder";
   // ignore: non_constant_identifier_names
   String HIGGEID = "placeholder";
 
   bool _toggled1 = false;
-
 
   @override
   void initState() {
@@ -31,6 +29,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
       HIGGEID = (prefs.getString('UserHIGGEID') ?? 0).toString();
     });
   }
+
   clearlocalstorage() async {
     final prefs = await SharedPreferences.getInstance();
 
@@ -47,12 +46,12 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
   Widget build(BuildContext context) {
     readandsetlsvalues();
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
         leading: new IconButton(
-          icon: new Icon(Icons.arrow_back,size: 35.0,color: Colors.black),
+          icon: new Icon(Icons.arrow_back, size: 35.0, color: Colors.black),
           onPressed: () => {
             // Perform Your action here
             Navigator.of(context).pop()
@@ -62,7 +61,8 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
         toolbarHeight: 70,
         title: Text(
           'Settings',
-          style: TextStyle(color: Colors.black, fontStyle: FontStyle.normal, fontSize: 40),
+          style: TextStyle(
+              color: Colors.black, fontStyle: FontStyle.normal, fontSize: 40),
         ),
       ),
       body: Stack(
@@ -91,7 +91,8 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                       ),
                     ),
                     leading: CircleAvatar(
-                      backgroundImage: NetworkImage("https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
+                      backgroundImage: NetworkImage(
+                          "https://ssbworld.com/images/character-profiles/rounded/Jigglypuff-Profile-Round.png"),
                     ),
                     trailing: Icon(
                       Icons.edit,
@@ -158,10 +159,8 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                   activeColor: Colors.purple,
                   contentPadding: const EdgeInsets.all(0),
                   value: _toggled1,
-                  title: Text(
-                      "Match users of different gender",
-                      style: Theme.of(context).textTheme.headline2
-                  ),
+                  title: Text("Match users of different gender",
+                      style: Theme.of(context).textTheme.headline2),
                   onChanged: (bool val) {
                     setState(() {
                       _toggled1 = val;
@@ -172,19 +171,15 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
                     activeColor: Colors.purple,
                     contentPadding: const EdgeInsets.all(0),
                     value: false,
-                    title: Text(
-                        "Connect email to account",
-                        style: Theme.of(context).textTheme.headline2
-                    ),
-                    onChanged: null
-                ),
+                    title: Text("Connect email to account",
+                        style: Theme.of(context).textTheme.headline2),
+                    onChanged: null),
                 SwitchListTile(
                   activeColor: Colors.purple,
                   contentPadding: const EdgeInsets.all(0),
                   value: true,
                   title: Text("Received App Updates",
-                      style: Theme.of(context).textTheme.headline2
-                  ),
+                      style: Theme.of(context).textTheme.headline2),
                   onChanged: null,
                 ),
                 const SizedBox(height: 60.0),
@@ -193,7 +188,7 @@ class _SettingsOnePageState extends State<SettingsOnePage> {
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.only(top:525.0),
+              padding: const EdgeInsets.only(top: 525.0),
               child: Container(
                 child: IconButton(
                   icon: Icon(

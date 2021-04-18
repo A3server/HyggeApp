@@ -143,7 +143,7 @@ class _MyHomePageState extends State<HomePage> {
             collapsedHeight: 100,
             expandedHeight: 30,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(0.0),
+              preferredSize: Size.fromHeight(55.0),
               child: Text(''),
             ),
             pinned: _pinned,
@@ -151,63 +151,93 @@ class _MyHomePageState extends State<HomePage> {
             flexibleSpace: FlexibleSpaceBar(
               centerTitle: true,
               title: SafeArea(
-                child: Stack(
+                child: Column(
                   children: [
-                    Positioned(
-                      left: 15,
-                      top:15,
-                      child: IconButton(
-                        icon: Icon(Icons.menu),
-                        iconSize: 40,
-                        color: Colors.white,
-                        onPressed: () {
-                          _scaffoldKey.currentState!.openDrawer();
-                        },
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Hygge",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 45,
-                                  fontFamily: 'Poppins-Bold'
-                              ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 10,
+                            top: 5,
+                            child: IconButton(
+                              icon: Icon(Icons.menu),
+                              iconSize: 40,
+                              color: Colors.white,
+                              onPressed: () {
+                                _scaffoldKey.currentState!.openDrawer();
+                              },
                             ),
-                            /*Padding(
-                              padding: const EdgeInsets.only(top:0.0),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    "Hygge",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 45,
+                                        fontFamily: 'Poppins-Bold'),
+                                  ),
+                                  /*Padding(
+                                  padding: const EdgeInsets.only(top:0.0),
 
-                              child: SizedBox(
-                                width: 250,
-                                height: 40,
-                                child: ClipRRect(
-                                  borderRadius:BorderRadius.circular(10),
-                                  child: Container(
-                                    child: Text(
-                                        "Search",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                        fontSize: 22, fontWeight: FontWeight.w100, color: Colors.grey),
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      shape: BoxShape.rectangle,
-                                      border: Border.all(width: 4.0,color: Colors.grey),
-                                      borderRadius: BorderRadius.all(Radius.circular(10))
+                                  child: SizedBox(
+                                    width: 250,
+                                    height: 40,
+                                    child: ClipRRect(
+                                      borderRadius:BorderRadius.circular(10),
+                                      child: Container(
+                                        child: Text(
+                                            "Search",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                            fontSize: 22, fontWeight: FontWeight.w100, color: Colors.grey),
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          shape: BoxShape.rectangle,
+                                          border: Border.all(width: 4.0,color: Colors.grey),
+                                          borderRadius: BorderRadius.all(Radius.circular(10))
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
+                                ),*/
+                                ],
                               ),
-                            ),*/
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(70, 15, 70, 0),
+                      child: Container(
+                        height: 40,
+                        child: TextField(
+                          textAlignVertical: TextAlignVertical.top,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                              contentPadding: EdgeInsets.only(left: 20),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey, width: 1),
+                                borderRadius: BorderRadius.circular(25.7),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide:
+                                    BorderSide(color: Colors.grey, width: 1),
+                                borderRadius: BorderRadius.circular(25.7),
+                              ),
+                              hintText: 'Destination'),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -220,17 +250,17 @@ class _MyHomePageState extends State<HomePage> {
                 child: Stack(alignment: Alignment.center, children: <Widget>[
                   Align(
                     alignment: Alignment.center,
-                      child: Text(
-                        "Favourites",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF9a33b6),
-                          fontSize: 30,
-                        ),
+                    child: Text(
+                      "FAVOURITES",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF9a33b6),
+                        fontSize: 30,
                       ),
                     ),
+                  ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 9.0,top: 0),
+                    padding: const EdgeInsets.only(right: 18.0, top: 0),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
@@ -265,7 +295,10 @@ class _MyHomePageState extends State<HomePage> {
                 });
               },
               child: ListTile(
-                title: Text(favouriteLocations[index].nome),
+                title: Text(
+                  favouriteLocations[index].nome,
+                  style: TextStyle(fontSize: 18),
+                ),
                 leading: Icon(
                   Icons.star,
                   color: Colors.black,
@@ -276,10 +309,10 @@ class _MyHomePageState extends State<HomePage> {
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
-                color:Colors.grey.shade100,
+                color: Colors.grey.shade100,
                 child: Center(
                   child: Text(
-                    "Featured",
+                    "FEATURED",
                     style: TextStyle(color: Color(0xFF9a33b6), fontSize: 30),
                   ),
                 ),
@@ -304,7 +337,8 @@ class _MyHomePageState extends State<HomePage> {
                 });
               },
               child: ListTile(
-                title: Text(featuredLocations[index].nome),
+                title: Text(featuredLocations[index].nome,
+                    style: TextStyle(fontSize: 18)),
                 leading: Icon(
                   Icons.school,
                   color: Colors.black,
@@ -318,7 +352,7 @@ class _MyHomePageState extends State<HomePage> {
                 color: Colors.grey.shade100,
                 child: Center(
                   child: Text(
-                    "Latest",
+                    "LATEST",
                     style: TextStyle(color: Color(0xFF9a33b6), fontSize: 30),
                   ),
                 ),
@@ -342,7 +376,8 @@ class _MyHomePageState extends State<HomePage> {
                   });
                 },
                 child: ListTile(
-                  title: Text(latestLocations[index].nome),
+                  title: Text(latestLocations[index].nome,
+                      style: TextStyle(fontSize: 18)),
                   leading: Icon(
                     Icons.access_time,
                     color: Colors.black,
