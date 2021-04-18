@@ -24,7 +24,8 @@
   <h3 align="center">HyggeApp</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    HyggeApp is Live!
+  
     <br />
     <a href="https://github.com/A3server/HyggeApp"><strong>Explore the docs »</strong></a>
     <br />
