@@ -47,42 +47,36 @@ class RequestAssistant {
   }
 
   //metodo de calcular distancia com matematicas super complicadas e ~~fixes~~
-  static double calculateDistance(lat1, lon1, lat2, lon2){
+  static double calculateDistance(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;
     var c = cos;
-    var a = 0.5 - c((lat2 - lat1) * p)/2 + c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p))/2;
+    var a = 0.5 -
+        c((lat2 - lat1) * p) / 2 +
+        c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p)) / 2;
     return 12742 * asin(sqrt(a));
   }
-
 
   //Nearby people, got from theoretical server.
 
   //O server deu nos quem esta proximo de nos e vai para o mesmo destino.
-  List<dynamic> data = [{
-      "lat": 40.1845,
-      "lng": -8.4136
-    },{
-      "lat":40.1851,
-      "lng": -8.4116
-    },{
-      "lat": 40.1851,
-      "lng": -8.4133
-    }
+  List<dynamic> data = [
+    {"lat": 40.186179, "lng": -8.412450},
+    {"lat": 40.1851, "lng": -8.4116},
+    {"lat": 40.1851, "lng": -8.4133}
   ];
-  List<dynamic> getdata(){
+  List<dynamic> getdata() {
     return data;
   }
 
-  static checkpair(List<dynamic> data, build) async{
+  static checkpair(List<dynamic> data, build) async {
     //no server :(
     Position currentPosition = await getactualpos();
-    double raio= 2000;
+    double raio = 2000;
     double totaldistance = 0;
-    for(var i = 0; i < data.length-1; i++) {
+    for (var i = 0; i < data.length - 1; i++) {
       //fazer 4 loop
-      totaldistance = calculateDistance(
-          currentPosition.latitude, currentPosition.latitude, data[0]["lat"],
-          data[0]["lng"]);
+      totaldistance = calculateDistance(currentPosition.latitude,
+          currentPosition.latitude, data[0]["lat"], data[0]["lng"]);
       //print("$totaldistance");
 
       if (totaldistance < raio) {
