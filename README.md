@@ -119,6 +119,8 @@ The main plans we aim towards are:
 
 - Create functional build!
 
+- Create a monetization by partnering with incredible companies!
+
 <!-- CONTRIBUTING -->
 
 ## Contributing
