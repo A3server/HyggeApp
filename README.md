@@ -90,7 +90,7 @@ Here's some:
 
 ## Getting Started
 
-If you want to test this on your computer, you need to have an editor and [Flutter SDK](https://flutter.dev/docs/get-started/install/) installed.
+If you want to test this on your computer, you need to have an emulator and [Flutter SDK](https://flutter.dev/docs/get-started/install/) installed.
 
 ### Prerequisites
 
@@ -100,10 +100,11 @@ When you have your environment set up to get the dependencies needed just run on
   ```sh
   flutter pub get
   ```
+  To get the needed dependencies
 
 ### Installation
 
-To install it just run it on the emulator and the app will install itself on your phone!
+To install it, just run it (with Flutter SDK) on the emulator and the app will install itself on your phone!
 
 <!-- ROADMAP -->
 
@@ -114,6 +115,8 @@ The main plans we aim towards are:
 - Implementing an API that can send and pull requests in real-time of the people around you!
 
 - Two-factor authentication in sign-in using Firebase!
+
+- Create functional build!
 
 <!-- CONTRIBUTING -->
 
